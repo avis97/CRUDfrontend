@@ -1,6 +1,5 @@
-
 import axios from "axios";
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 export default function ViewUser() {
@@ -8,7 +7,7 @@ export default function ViewUser() {
     firstName: "",
     lastName: "",
     phoneNumber: "",
-    mailId:""
+    mailId: "",
   });
 
   const { id } = useParams();
@@ -18,7 +17,9 @@ export default function ViewUser() {
   }, []);
 
   const loadUser = async () => {
-    const result = await axios.get(`http://localhost:8081/user/getUserById/${id}`);
+    const result = await axios.get(
+      `http://52.90.0.242:8081/user/getUserById/${id}`
+    );
     setUser(result.data);
   };
 
@@ -59,4 +60,3 @@ export default function ViewUser() {
     </div>
   );
 }
-
